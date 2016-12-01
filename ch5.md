@@ -42,6 +42,13 @@ var shout = function(x) {
 Instead of inside to outside, we run right to left, which I suppose is a step in the left direction(boo). Let's look at an example where sequence matters:
 
 ```js
+var curry = require('lodash/curry');
+
+//  reduce :: (b -> a -> b) -> b -> [a] -> b
+var reduce = curry(function(f, x, xs) {
+  return xs.reduce(f, x);
+});
+
 var head = function(x) {
   return x[0];
 };
