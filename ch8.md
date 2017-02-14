@@ -120,15 +120,19 @@ Maybe.of('Malkovich Malkovich').map(match(/a/ig));
 Maybe.of(null).map(match(/a/ig));
 //=> Maybe(null)
 
+var add10 = function(x) {
+  return x + 10;
+};
+
 Maybe.of({
   name: 'Boris',
-}).map(_.prop('age')).map(add(10));
+}).map(_.prop('age')).map(add10);
 //=> Maybe(null)
 
 Maybe.of({
   name: 'Dinah',
   age: 14,
-}).map(_.prop('age')).map(add(10));
+}).map(_.prop('age')).map(add10);
 //=> Maybe(24)
 ```
 
